@@ -7,8 +7,10 @@ export default (context) => new Promise(async (resolve, reject) => {
 
   const router = createRouter();
   const store = createStore();
+  const { url, state } = context;
+  store.commit('SET_TODO_ITEMS', state.todoItems);
 
-  await router.push(context.url);
+  await router.push(url);
 
   router.onReady(() => resolve(
     new Vue({

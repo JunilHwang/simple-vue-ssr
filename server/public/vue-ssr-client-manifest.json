@@ -3,13 +3,13 @@
   "all": [
     "css/index.8aa9cf56.css",
     "favicon.ico",
-    "js/index.713b3fa6.js",
-    "js/index.713b3fa6.js.map",
+    "js/index.fdaf6c0d.js",
+    "js/index.fdaf6c0d.js.map",
     "template/index.html"
   ],
   "initial": [
     "css/index.8aa9cf56.css",
-    "js/index.713b3fa6.js"
+    "js/index.fdaf6c0d.js"
   ],
   "async": [],
   "modules": {

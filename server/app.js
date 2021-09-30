@@ -23,11 +23,25 @@ const clientManifest = require("./public/vue-ssr-client-manifest.json");
 const renderer = createBundleRenderer(bundle, { clientManifest, template });
 
 const app = express();
+const state = {
+  todoItems: [
+    { id: 1, content: 'CSR을 만들어보자', activation: true },
+    { id: 2, content: 'CSR 코드 분할', activation: true },
+    { id: 3, content: 'SSR을 만들어보자', activation: false },
+  ],
+};
 
+app.use(express.json());
 app.use(express.static('./public'));
 
-app.get("/*", async (req, res) => {
-  res.send(await renderer.renderToString({ url: req.url }));
+
+app.put("/api/state", (req, res) => {
+  state.todoItems = req.body;
+  res.status(204).send();
+})
+
+app.get("/*", async ({ url }, res) => {
+  res.send(await renderer.renderToString({ url, state }));
 });
 
 app.listen(3000, () => {
