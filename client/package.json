@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build:all": "cross-env NODE_ENV=production vue-cli-service build && cross-env NODE_ENV=production SSR=1 vue-cli-service build --no-clean",
+    "build:ssr": "cross-env NODE_ENV=production SSR=1 vue-cli-service build",
+    "build:csr": "cross-env NODE_ENV=production vue-cli-service build --no-clean"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -19,6 +21,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "cross-env": "^7.0.3",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
