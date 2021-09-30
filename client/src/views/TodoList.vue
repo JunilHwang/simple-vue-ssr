@@ -17,6 +17,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import axios from "axios";
 
 export default {
   name: "TodoList",
@@ -33,8 +34,14 @@ export default {
       const selectedItem = todoItems.find(v => v.id === id);
       selectedItem.activation = !selectedItem.activation;
       this.SET_TODO_ITEMS(todoItems);
+      axios.put("/api/state", { todoItems });
     }
   },
+
+  mounted() {
+    axios.get('/api/state')
+         .then(({ data }) => this.SET_TODO_ITEMS(data.todoItems));
+  }
 }
 </script>
 
