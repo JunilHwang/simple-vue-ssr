@@ -1,6 +1,5 @@
-import express from "express";
-import { createBundleRenderer } from "vue-server-renderer";
-import * as fs from "fs";
+const express = require("express");
+const { createBundleRenderer } = require("vue-server-renderer");
 
 const template = `
 <!DOCTYPE html>
@@ -19,19 +18,15 @@ const template = `
 </html>
 `;
 
-const bundle = JSON.parse(fs.readFileSync("./public/vue-ssr-server-bundle.json", "utf-8"));
-const clientManifest = JSON.parse(fs.readFileSync("./public/vue-ssr-client-manifest.json", "utf-8"));
-const renderer = createBundleRenderer(bundle, {
-  runInNewContext: true,
-  clientManifest,
-  template,
-});
+const bundle = require("./public/vue-ssr-server-bundle.json");
+const clientManifest = require("./public/vue-ssr-client-manifest.json");
+const renderer = createBundleRenderer(bundle, { clientManifest, template });
 
 const app = express();
 
 app.use(express.static('./public'));
 
-app.get("*", async (req, res) => {
+app.get("/*", async (req, res) => {
   res.send(await renderer.renderToString({ url: req.url }));
 });
 

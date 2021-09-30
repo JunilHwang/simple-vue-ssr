@@ -8,7 +8,8 @@ module.exports = {
   pages: {
     index: {
       entry: `src/main${isSSR ? '-ssr' : '' }.js`,
-      template: `public/index.html`
+      template: `public/index.html`,
+      filename: 'template/index.html'
     }
   },
   chainWebpack: config => {
