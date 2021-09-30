@@ -1,15 +1,15 @@
 {
   "publicPath": "/",
   "all": [
-    "css/app.8aa9cf56.css",
+    "css/index.8aa9cf56.css",
     "favicon.ico",
     "index.html",
-    "js/app.52953b30.js",
-    "js/app.52953b30.js.map"
+    "js/index.713b3fa6.js",
+    "js/index.713b3fa6.js.map"
   ],
   "initial": [
-    "css/app.8aa9cf56.css",
-    "js/app.52953b30.js"
+    "css/index.8aa9cf56.css",
+    "js/index.713b3fa6.js"
   ],
   "async": [],
   "modules": {
@@ -37,7 +37,7 @@
       -1,
       4
     ],
-    "232491b5": [
+    "a40b79ac": [
       0,
       3,
       -1,

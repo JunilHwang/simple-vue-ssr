@@ -1,9 +1,16 @@
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const nodeExternals = require('webpack-node-externals');
+const isSSR = Boolean(process.env.SSR);
 
 module.exports = {
   outputDir: '../server/public',
+  pages: {
+    index: {
+      entry: `src/main${isSSR ? '-ssr' : '' }.js`,
+      template: `public/index.html`
+    }
+  },
   chainWebpack: config => {
     if (process.env.NODE_ENV !== 'production') return;
 
@@ -18,9 +25,6 @@ module.exports = {
 
     config
       .target('node')
-      .entry('index')
-        .add('/src/main-ssr.js')
-        .end()
       .optimization
         .delete('splitChunks')
         .end()

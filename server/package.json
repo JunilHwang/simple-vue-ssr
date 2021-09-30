@@ -4,6 +4,10 @@
   "main": "index.js",
   "type": "module",
   "license": "MIT",
+  "scripts": {
+    "serve": "node app.js",
+    "serve:watch": "nodemon app.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "vue": "^2.6.14",

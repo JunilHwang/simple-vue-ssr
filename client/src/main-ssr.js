@@ -3,23 +3,19 @@ import App from './App.vue';
 import createRouter from './router';
 import createStore from './store';
 
-export default (context) => new Promise((resolve, reject) => {
+export default (context) => new Promise(async (resolve, reject) => {
 
   const router = createRouter();
   const store = createStore();
 
-  router.push(context.url);
+  await router.push(context.url);
 
-  router.onReady(() => {
-
-    const app = new Vue({
+  router.onReady(() => resolve(
+    new Vue({
       router,
       store,
       render: h => h(App)
-    });
-
-    resolve(app);
-
-  })
+    }))
+  );
 })
 
