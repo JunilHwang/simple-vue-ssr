@@ -1,0 +1,10 @@
+{
+  "name": "simple-vue-ssr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JunilHwang/simple-vue-ssr",
+  "author": "JunilHwang <junil.h@kakao.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["client", "server"]
+}
