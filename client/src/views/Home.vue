@@ -5,13 +5,21 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "../components/HelloWorld";
+
+const pageTitle = "HOME | Vue SSR";
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+
+  components: { HelloWorld },
+
+  serverPrefetch() {
+    this.$ssrContext.title = pageTitle;
+  },
+
+  mounted () {
+    document.title = pageTitle;
   }
 }
 </script>

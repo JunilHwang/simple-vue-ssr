@@ -10,7 +10,7 @@ module.exports = {
     index: {
       entry: `src/main${isSSR ? '-ssr' : '' }.js`,
       template: 'public/index.html',
-      filename: isProduction ? 'template/index.html' : 'index.html',
+      filename: isProduction ? '../template/index.html' : 'index.html',
     }
   },
   devServer: {

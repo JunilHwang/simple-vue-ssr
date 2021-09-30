@@ -19,6 +19,8 @@
 import { mapState, mapMutations } from "vuex";
 import axios from "axios";
 
+const pageTitle = "TodoList | Vue SSR";
+
 export default {
   name: "TodoList",
 
@@ -38,7 +40,12 @@ export default {
     }
   },
 
+  serverPrefetch() {
+    this.$ssrContext.title = pageTitle;
+  },
+
   mounted() {
+    document.title = pageTitle;
     axios.get('/api/state')
          .then(({ data }) => this.SET_TODO_ITEMS(data.todoItems));
   }
