@@ -2,7 +2,7 @@ const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const nodeExternals = require('webpack-node-externals');
 const isSSR = Boolean(process.env.SSR);
-const isProduction = Boolean(process.env.NODE_ENV);
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   outputDir: '../server/public',
