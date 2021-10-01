@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build:all": "cross-env NODE_ENV=production vue-cli-service build && cross-env NODE_ENV=production SSR=1 vue-cli-service build --no-clean",
     "build:ssr": "cross-env NODE_ENV=production SSR=1 vue-cli-service build",
-    "build:csr": "cross-env NODE_ENV=production vue-cli-service build --no-clean"
+    "build:csr": "cross-env NODE_ENV=production vue-cli-service build"
   },
   "dependencies": {
     "axios": "^0.21.4",
